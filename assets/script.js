@@ -13,10 +13,10 @@ class Fetch {
     async getCurrent(input){
             let response = await 
                 
-                fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=eea5b144b409aceaec1caf47854c2562`)
+                fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=eea5b144b409aceaec1caf47854c2562`)
                 .then(r=> r.json())
                 .then(data => {return data})
-            return await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${response[0].lat}&lon=${response[0].lon}&appid=` + weatherAPIKey + '&units=imperial')
+            return await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${response[0].lat}&lon=${response[0].lon}&appid=` + weatherAPIKey + '&units=imperial')
             .then(response => response.json())
             .then(data => {return data})
     }   
